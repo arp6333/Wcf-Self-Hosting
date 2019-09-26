@@ -1,6 +1,8 @@
 # Wcf Self Hosting
 
-## Create service where 'Service' is a Wcf Service Application containing the service information and Web.config
+## Create service
+
+'Service' is a Wcf Service Application containing the service information and the Web.config file.
 
 ```csharp
 var service = new ServiceHost(typeof(Service), new Uri("10.1.1.1:80/Service"));
