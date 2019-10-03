@@ -20,7 +20,7 @@ ServiceMetadataBehavior smb = new ServiceMetadataBehavior
     HttpGetEnabled = true
 };
 smb.MetadataExporter.PolicyVersion = PolicyVersion.Policy15;
-// Check if service already has ServiceMetadataBehavior set
+// Check if service already has ServiceMetadataBehavior set and manually modify it if so
 if (service.Description.Behaviors.Any(b => b.GetType() == typeof(ServiceMetadataBehavior)))
 {
     service.Description.Behaviors.Find<ServiceMetadataBehavior>().HttpGetEnabled = true;
@@ -31,7 +31,7 @@ else
 {
     service.Description.Behaviors.Add(smb);
 }
-// Check if service already has ServiceDebugBehavior set
+// Check if service already has ServiceDebugBehavior set and manually modify it if so
 if (service.Description.Behaviors.Any(b => b.GetType() == typeof(ServiceDebugBehavior)))
 {
     service.Description.Behaviors.Find<ServiceDebugBehavior>().IncludeExceptionDetailInFaults = true;
